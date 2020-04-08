@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :users,only: [:show,:index,:edit,:update]
   resources :relationships, only: [:create, :destroy]
 
+  get 'followed/:id' => 'relationships#followed', as: 'followed'
+  get 'follower/:id' => 'relationships#follower', as: 'follower'
 
   root 'home#top'
   get "home/about" => "home#about"
